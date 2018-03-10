@@ -286,3 +286,15 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+#############
+## Team Development for Sitecore
+#############
+
+*.scproj.user
+T4RenderCache/
+IconCache/ 
+BuiltFiles_*.txt
+Package_*/
+
+
