@@ -1,0 +1,15 @@
+﻿@using Sitecore.Mvc
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Html.Sitecore().CurrentItem.DisplayName</title>
+    @* @Html.Sitecore().VisitorIdentification() *@
+</head>
+<body>
+    <h1>@Html.Sitecore().CurrentItem.DisplayName</h1>
+    @Html.Sitecore().Placeholder("main")
+</body>
+</html>
