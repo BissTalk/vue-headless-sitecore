@@ -11,18 +11,10 @@
     </div>
 </template>
 <script>
-export default {
-        props: {
-            item: {
-                type: Object,
-                required: true
-            },
-            placeholders: {
-                type: Object,
-                required: true
-            }
+    import rendering from "components/rendering";
+    export default {
+        extends: rendering
     }
-}
 </script>
 <style scoped>
 </style>

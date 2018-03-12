@@ -20,6 +20,7 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="client\components\rendering.vue" />
     <Content Include="client\components\sample-inner-sublayout.vue" />
     <Content Include="client\components\sample-rendering.vue" />
     <Content Include="client\components\sample-sublayout.vue" />

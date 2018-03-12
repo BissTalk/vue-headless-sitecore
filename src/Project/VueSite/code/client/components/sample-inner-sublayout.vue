@@ -4,23 +4,10 @@
     </div>  
 </template>
 <script>
-//import Vue from 'vue'
-export default {
-    data() {
-        return {
-        }
-    },
-    props: {
-        item: {
-            type: Object,
-            required: true
-        },
-        placeholders: {
-            type: Object,
-            required: true
-        }
+    import rendering from "components/rendering";
+    export default {
+        extends: rendering
     }
-}
 </script>
 <style scoped>
     .centercolumn {

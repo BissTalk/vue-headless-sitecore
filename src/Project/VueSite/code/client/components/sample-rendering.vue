@@ -8,19 +8,10 @@
     </div>
 </template>
 <script>
-export default {
-    data() {
-        return {
-
-        }
-    },
-        props: {
-            fields: {
-                type: Object,
-                required: true
-            }
-        }
-}
+    import rendering from "components/rendering";
+    export default {
+        extends: rendering
+    }
 </script>
 <style scoped>
 </style>
