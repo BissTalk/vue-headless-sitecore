@@ -45,7 +45,8 @@
     },
     "scripts": {
         "build": "webpack --progress --hide-modules",
-        "run": "http-server ./wwwroot -a 127.0.0.1 -p 3000 -o"
+        "run:local": "http-server ./wwwroot -a 127.0.0.1 -p 3000 -o",
+        "run:proxy": "node ./client/webServer.js"
     },
     "-vs-binding": {
         "BeforeBuild": [
