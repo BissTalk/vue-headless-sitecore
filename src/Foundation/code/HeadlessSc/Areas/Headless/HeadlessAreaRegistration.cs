@@ -17,7 +17,7 @@ namespace HeadlessSc.Areas.Headless
                 "Headless_default",
                 ModuleInfo.RoutePrefix.TrimStart('/'),
                 new {controller = "HeadlessContent", action = "Index"},
-                new [] { "Bissol.HeadlessSc.Areas.Headless.Controllers" }
+                new [] { "HeadlessSc.Areas.Headless.Controllers" }
             );
         }
     }
