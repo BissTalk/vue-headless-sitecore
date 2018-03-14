@@ -15,5 +15,13 @@ namespace HeadlessSc
                 value.Replace(' ', '_');
             return value;
         }
+
+        public static string ToJsonValueString(this string value)
+        {
+            return !string.IsNullOrWhiteSpace(value)
+                ? value.Trim()
+                : null;
+
+        }
     }
 }

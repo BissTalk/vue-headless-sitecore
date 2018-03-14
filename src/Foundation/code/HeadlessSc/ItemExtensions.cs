@@ -10,10 +10,10 @@ namespace HeadlessSc
 {
     public static class ItemExtensions
     {
-        public static Dictionary<string, object> ToFieldsDictionary(this Item item)
+        public static Dictionary<string, object> ToFieldsDictionary(this Item item, int recurse = 0)
         {
             var fields = item?.Fields
-                .Select(f => new KeyValuePair<string, object>(f.Name.ToJsPropertyName(), BuildFieldModel(f)))
+                .Select(f => new KeyValuePair<string, object>(f.Name.ToJsPropertyName(), BuildFieldModel(f, recurse)))
                 .Where(kv => kv.Value != null)
                 .ToArray();
             if (fields == null || fields.Length < 1)
@@ -28,9 +28,9 @@ namespace HeadlessSc
             return result;
         }
 
-        private static object BuildFieldModel(Field field)
+        private static object BuildFieldModel(Field field, int recurse)
         {
-            var args = new GetFieldModelArgs(field);
+            var args = new GetFieldModelArgs(field, recurse);
             CorePipeline.Run("headless.getFieldModel", args, false);
             return args.Result;
         }
