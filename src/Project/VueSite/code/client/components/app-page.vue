@@ -1,8 +1,8 @@
 <template>
-    <div class="home">
+    <div class="page">
         <div class="container">
             <keep-alive>
-                <sitecore-controller />
+                <sitecore-controller v-bind:path="path" />
             </keep-alive>
         </div>
     </div>
@@ -10,7 +10,11 @@
 
 <script>
     export default {
-        
+        computed: {
+            path: function () {
+                return this.$route.path;
+            }
+        }
 }
 </script>
 

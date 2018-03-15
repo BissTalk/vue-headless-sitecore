@@ -16,6 +16,8 @@ namespace HeadlessSc.Areas.Headless.Controllers
         // GET: Headless/Content
         public ActionResult Index()
         {
+            if (Sitecore.Context.Item == null)
+                return HttpNotFound("item not found");
             var renderings = GetRenderings();
             var result = CreateResult(renderings);
             if (result == null)

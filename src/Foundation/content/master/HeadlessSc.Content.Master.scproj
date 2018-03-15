@@ -234,6 +234,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\System\Layout\Layout\Layout Service\Placeholders.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\System\Layout\Sections.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
@@ -249,9 +250,11 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\System\Layout\Sections\Rendering Options\Layout Service\Placeholders.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\System\Layout\Sections\Rendering Options\Layout Service\Rendering Contents Resolver.item">
       <ItemDeployment>DeployOnce</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
   </ItemGroup>
   <ItemGroup>

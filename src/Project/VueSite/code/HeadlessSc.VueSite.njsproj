@@ -16,6 +16,7 @@
     <NodejsPort>3001</NodejsPort>
     <DebuggerPort>5858</DebuggerPort>
     <Name>HeadlessSc.VueSite</Name>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -25,6 +26,7 @@
     <Content Include="client\components\sample-rendering.vue" />
     <Content Include="client\components\sample-sublayout.vue" />
     <Content Include="client\components\sitecore-controller.vue" />
+    <Content Include="client\components\not-found.vue" />
     <Content Include="client\components\sitecore-loader.vue" />
     <Content Include="client\components\sitecore-placeholder.vue" />
     <Content Include="package.json" />
@@ -40,7 +42,7 @@
     <Content Include="wwwroot\favicon.ico" />
     <Content Include="wwwroot\Index.html" />
     <Content Include="client\components\app-root.vue" />
-    <Content Include="client\components\home-page.vue" />
+    <Content Include="client\components\app-page.vue" />
     <Content Include="client\components\nav-menu.vue" />
     <Content Include="client\images\configuration-hero.jpg" />
     <Content Include="wwwroot\dist\674f50d287a8c48dc19ba404d20fe713.eot" />

@@ -43,6 +43,9 @@ export default {
                 self.componentName = "placeholder";
             })
             .catch(function (error) {
+                if (error.response && error.response.status == "404") {
+                    self.componentName = "not-found";
+                }
                 console.error(error);
             });      
         }
