@@ -1,5 +1,6 @@
 ﻿using System;
 using Sitecore.Pipelines;
+using Sitecore.Sites;
 
 namespace HeadlessSc.Pipelines.GetRenderings
 {
@@ -17,7 +18,9 @@ namespace HeadlessSc.Pipelines.GetRenderings
         {
             if (args == null) throw new ArgumentNullException(nameof(args));
 
+            Sitecore.Context.Site.SetDisplayMode(DisplayMode.Normal, DisplayModeDuration.ResetAfterRequest);
             CorePipeline.Run("mvc.requestBegin", args);
+
         }
     }
 }
