@@ -9,13 +9,15 @@
 </template>
 
 <script>
+    var self = this;
     export default {
-        computed: {
-            path: function () {
-                return this.$route.path;
+        props: {
+            path: {
+                type: String,
+                required: true
             }
         }
-}
+    }
 </script>
 
 <style>

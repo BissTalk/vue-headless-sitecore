@@ -4,7 +4,7 @@
     </keep-alive>
 </template>
 <script>
-export default {
+    export default {
     data() {
             return {
                 item: {},
@@ -12,8 +12,8 @@ export default {
                 componentName: null
             };
         },
-    props: {
-            serviceRoot: {
+        props: {
+            serviceRoot : {
                 type: String,
                 default: '/headless/website'
             },
@@ -22,32 +22,44 @@ export default {
                 default: ''
             },
             lang: {
-                type: String,
+                tyserviceRootpe: String,
                 default: 'en'
             }
         },
-    created() {
-        this.componentName = "sitecore-loader";
+        watch: {
+            serviceRoot: function() {
+                this.updateRenderings(); 
+            },
+            path: function() {
+                this.updateRenderings(); 
+            },
+            lang: function() {
+                this.updateRenderings(); 
+            }
         },
-    mounted() {
-        var self = this;
-        var url = this.serviceRoot + this.path + '/' + this.lang + '.json';
-        console.log(url);
-        this.$http.get(url)
-            .then(function (response) {
-                var pageData = response.data;
-                self.item['fields'] = pageData.fields;
-                self.item.name = pageData.name;
-                self.item.displayName = pageData.displayName;
-                self.placeholders = pageData.placeholders;
-                self.componentName = "placeholder";
-            })
-            .catch(function (error) {
-                if (error.response && error.response.status == "404") {
-                    self.componentName = "not-found";
-                }
-                console.error(error);
-            });      
+        methods: {
+            updateRenderings: function () {;
+                let self = this;
+                let url = this.serviceRoot + this.path + '/' + this.lang + '.json';
+                this.$http.get(url)
+                    .then(function (response) {
+                        var pageData = response.data;
+                        self.item['fields'] = pageData.fields;
+                        self.item.name = pageData.name;
+                        self.item.displayName = pageData.displayName;
+                        self.placeholders = pageData.placeholders;
+                        self.componentName = "placeholder";
+                    })
+                    .catch(function (error) {
+                        if (error.response && error.response.status == "404") {
+                            self.componentName = "not-found";
+                        }
+                        console.error(error);
+                    });      
+            }
+        },
+        mounted() {
+            this.updateRenderings();    
         }
 }
 </script>

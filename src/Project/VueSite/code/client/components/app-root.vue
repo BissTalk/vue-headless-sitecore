@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <nav-menu params="route: route"></nav-menu>
-        <app-page></app-page>
+        <app-page v-bind:path="$route.path"></app-page>
     </div>
 
 </template>
@@ -14,11 +14,12 @@ import NavMenu from './nav-menu'
 Vue.component('app-page', AppPage);
 Vue.component('nav-menu', NavMenu);
 
-export default {
-    data() {
-        return {
+    export default {
+
+        data() {
+            return {
+            };
         }
-    }
 }
 </script>
 

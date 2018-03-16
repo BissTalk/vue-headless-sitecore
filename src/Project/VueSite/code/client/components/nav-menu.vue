@@ -13,6 +13,12 @@
                             {{ route.display }}
                         </router-link>
                     </li>
+                    <li class="nav-item" v-for="route in sc_routes">
+                        <router-link :to="route.ItemName" class="nav-link">
+                            <i aria-hidden="true"></i>
+                            {{ route.DisplayName }}
+                        </router-link>
+                    </li>
                 </ul>
             </div>
          </div>
@@ -26,13 +32,22 @@ export default {
     data() {
         return {
             routes,
-            collapsed : true
+            collapsed: true,
+            sc_routes: null
         }
     },
     methods: {
         toggleCollapsed: function(event){
             this.collapsed = !this.collapsed;
         }
+    },
+    mounted() {
+        var self = this;
+        var url = '/sitecore/api/ssc/item/110d559f-dea5-42ea-9c1c-8a5df7e70ef9/children?fields=ItemName,DisplayName';
+        this.$http.get(url)
+            .then(function (response) {
+                self.sc_routes = response.data;
+            });
     }
 }
 </script>

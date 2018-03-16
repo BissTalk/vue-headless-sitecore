@@ -10,4 +10,10 @@ let router = new VueRouter({
     routes
 });
 
+router.afterEach((to) => {
+    router.app.$emit("afterNavigate", to);
+});
+
+
+
 export default router

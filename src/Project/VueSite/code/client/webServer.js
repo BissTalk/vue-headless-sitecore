@@ -19,7 +19,8 @@ build.on("close", (code) =>
             directory: "wwwroot",
             spa: "index.html",
             rewrite: [{ from: "/-/*", to: "http://sc812.local/-/$1" },
-                { from: "/headless/*", to: "http://sc812.local/headless/$1" }
+                { from: "/headless/*", to: "http://sc812.local/headless/$1" },
+                { from: "/sitecore/*", to: "http://sc812.local/sitecore/$1" }
              ]
         });
         if (process.platform === "win32") {
