@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Web;
-using Sitecore;
-using Sitecore.Data.Fields;
+﻿using Sitecore.Data.Fields;
 using Sitecore.Resources.Media;
 
 namespace HeadlessSc.Pipelines.GetFieldModel
@@ -13,7 +7,7 @@ namespace HeadlessSc.Pipelines.GetFieldModel
     {
         public void Process(GetFieldModelArgs args)
         {
-            if (args.Result != null || args.Field.Name.StartsWith("_", true, CultureInfo.InvariantCulture) || !args.Field.HasValue)
+            if (args.Result != null || !args.Field.HasValue)
                 return;
 
             if (!(FieldTypeManager.GetField(args.Field) is ImageField imagefield))
@@ -24,14 +18,13 @@ namespace HeadlessSc.Pipelines.GetFieldModel
                 @class = imagefield.Class.ToJsonValueString(),
                 alt = imagefield.Alt.ToJsonValueString(),
                 src = imagefield.MediaItem != null
-                ?  MediaManager.GetMediaUrl(imagefield.MediaItem, new MediaUrlOptions
+                    ? MediaManager.GetMediaUrl(imagefield.MediaItem, new MediaUrlOptions
                     {
-                        AlwaysIncludeServerUrl= false,
+                        AlwaysIncludeServerUrl = false,
                         IncludeExtension = true,
-                        LowercaseUrls = true,
-                        
+                        LowercaseUrls = true
                     })
-                : null,
+                    : null,
                 linkType = imagefield.LinkType.ToJsonValueString(),
                 border = imagefield.Border.ToJsonValueString(),
                 hspace = imagefield.HSpace.ToJsonValueString(),

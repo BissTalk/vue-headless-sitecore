@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Sitecore.Data.Fields;
 using Sitecore.Mvc;
 using Sitecore.Mvc.Presentation;
@@ -11,8 +10,7 @@ namespace HeadlessSc.Pipelines.GetFieldModel
     {
         public void Process(GetFieldModelArgs args)
         {
-            if (args.Result != null || args.Field.Name.StartsWith("_", true, CultureInfo.InvariantCulture) ||
-                !args.Field.HasValue)
+            if (args.Result != null || !args.Field.HasValue)
                 return;
 
             if (!(FieldTypeManager.GetField(args.Field) is HtmlField))

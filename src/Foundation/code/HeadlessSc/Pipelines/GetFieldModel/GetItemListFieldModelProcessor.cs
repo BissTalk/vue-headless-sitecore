@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using Sitecore.Data.Fields;
 using Sitecore.Links;
 
@@ -9,8 +8,7 @@ namespace HeadlessSc.Pipelines.GetFieldModel
     {
         public void Process(GetFieldModelArgs args)
         {
-            if (args.RecursionLevel > 5 || args.Result != null ||
-                args.Field.Name.StartsWith("_", true, CultureInfo.InvariantCulture) || !args.Field.HasValue)
+            if (args.RecursionLevel > 5 || args.Result != null || !args.Field.HasValue)
                 return;
 
             if (!(FieldTypeManager.GetField(args.Field) is MultilistField listField))
@@ -32,7 +30,7 @@ namespace HeadlessSc.Pipelines.GetFieldModel
             }
 
             args.Result = new {items, type = listField.InnerField.Type}
-            ;
+                ;
         }
     }
 }

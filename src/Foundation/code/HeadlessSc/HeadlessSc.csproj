@@ -143,6 +143,8 @@
     <Compile Include="ItemExtensions.cs" />
     <Compile Include="Layout\HeadlessRenderer.cs" />
     <Compile Include="Layout\HeadlessResponseWriter.cs" />
+    <Compile Include="Pipelines\GetFieldModel\FieldModelFilterProcessor.cs" />
+    <Compile Include="Pipelines\GetFieldModel\GetNameValuePairFieldModelProcessor.cs" />
     <Compile Include="Pipelines\GetFieldModel\GetReferenceOrLookupFieldModelProcessor.cs" />
     <Compile Include="Pipelines\GetFieldModel\GetRichTextFieldModelProcessor.cs" />
     <Compile Include="Pipelines\GetFieldModel\GetDefaultFieldModelProcessor.cs" />

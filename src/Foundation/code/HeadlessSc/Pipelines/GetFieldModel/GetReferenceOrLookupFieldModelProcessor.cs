@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using Sitecore.Data.Fields;
+﻿using Sitecore.Data.Fields;
 using Sitecore.Links;
 
 namespace HeadlessSc.Pipelines.GetFieldModel
@@ -8,8 +7,7 @@ namespace HeadlessSc.Pipelines.GetFieldModel
     {
         public void Process(GetFieldModelArgs args)
         {
-            if (args.RecursionLevel > 5 || args.Result != null ||
-                args.Field.Name.StartsWith("_", true, CultureInfo.InvariantCulture) || !args.Field.HasValue)
+            if (args.RecursionLevel > 5 || args.Result != null || !args.Field.HasValue)
                 return;
             var lookupField = FieldTypeManager.GetField(args.Field) as LookupField;
             var itemField = FieldTypeManager.GetField(args.Field) as ReferenceField;
