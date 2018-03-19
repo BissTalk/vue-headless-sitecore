@@ -20,6 +20,8 @@ namespace HeadlessSc.Pipelines.GetRenderings
 
             Sitecore.Context.Site.SetDisplayMode(DisplayMode.Normal, DisplayModeDuration.ResetAfterRequest);
             CorePipeline.Run("mvc.requestBegin", args);
+            if (args.PageContext != null)
+                args.PageContext.Item = Sitecore.Context.Item ?? args.PageContext.Item;
 
         }
     }
